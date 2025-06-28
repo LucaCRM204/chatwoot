@@ -4,7 +4,7 @@ services:
     env: ruby
     region: oregon
     plan: free
-    buildCommand: bundle install && yarn install && bundle exec rails assets:precompile
+    buildCommand: NODE_OPTIONS="--max-old-space-size=1024" bundle install && yarn install && bundle exec rails assets:precompile
     startCommand: bundle exec rails s -b 0.0.0.0 -p $PORT
     envVars:
       - key: RAILS_ENV
